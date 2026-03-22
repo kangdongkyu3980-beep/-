@@ -492,7 +492,7 @@ const TODAYSTR = TODAY.toISOString().slice(0,10);
 //  ★ 구글 시트 연동 설정
 //  Apps Script 배포 후 아래 URL을 교체하세요
 // ══════════════════════════════════════
-let SCRIPT_URL = localStorage.getItem('ibs_script_url') || '';
+let SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxXO46NC-dfYETBE3ZwIcebDFy-2AmqJhUnZxh0GudxuJJ6K__V-2YEYskPTJpIYVcZ4w/exec';
 
 // ── API 통신 함수들 ──
 async function apiGet() {
@@ -627,8 +627,8 @@ async function loadFromSheet() {
 function updateSyncBadge() {
   const el = document.getElementById('syncBadge');
   if (!el) return;
-  if (!SCRIPT_URL) { el.textContent = '🔴 시트 미연결'; el.style.color='var(--red)'; }
-  else { el.textContent = '🟢 시트 연결됨'; el.style.color='var(--green)'; }
+  el.textContent = '🟢 시트 연결됨';
+  el.style.color = 'var(--green)';
 }
 function showToast(msg) {
   let t = document.getElementById('toast');
@@ -643,13 +643,7 @@ function showToast(msg) {
   t._timer = setTimeout(() => t.style.opacity = '0', 3000);
 }
 function openUrlSetting() {
-  const cur = SCRIPT_URL;
-  const url = prompt('Apps Script 웹앱 URL을 입력하세요:\n(배포 후 받은 URL)', cur || '');
-  if (url === null) return;
-  SCRIPT_URL = url.trim();
-  localStorage.setItem('ibs_script_url', SCRIPT_URL);
-  updateSyncBadge();
-  if (SCRIPT_URL) showToast('✅ URL이 저장됐습니다. 이제 시트 연동이 활성화됩니다.');
+  showToast('✅ 구글 시트가 이미 연결되어 있습니다.');
 }
 function genId(){return 'x'+Date.now()+Math.random().toString(36).slice(2,5)}
 let DATA = loadData();
