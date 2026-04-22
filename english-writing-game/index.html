@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>영작 레벨 게임</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>영작 레벨 게임</h1>
+      <p class="sub">레벨 선택 → 영작 제출 → 즉시 피드백 → 내 문장 저장</p>
+    </header>
+
+    <section class="card">
+      <h2>레벨 선택</h2>
+      <div id="levelList" class="grid"></div>
+    </section>
+
+    <section id="missionSection" class="card hidden">
+      <h2>미션</h2>
+      <p id="missionPrompt" class="prompt"></p>
+      <p id="missionHint" class="hint"></p>
+      <textarea id="answerInput" rows="4" placeholder="영어 문장을 입력하세요"></textarea>
+      <div class="row">
+        <button id="submitBtn">제출</button>
+        <button id="nextBtn" class="ghost">다음 문제</button>
+      </div>
+      <div id="resultBox" class="result hidden"></div>
+    </section>
+
+    <section class="card">
+      <h2>내 영작 보관함</h2>
+      <ul id="historyList" class="history"></ul>
+    </section>
+
+    <section class="card">
+      <h2>내 문제 업로드</h2>
+      <div class="row stack">
+        <input id="customPrompt" placeholder="한국어 문제 (예: 내일 나는 일찍 일어날 것이다)" />
+        <input id="customAnswer" placeholder="예시 정답 (선택)" />
+        <input id="customHints" placeholder="힌트 (쉼표로 구분, 예: tomorrow, will)" />
+        <button id="addCustomBtn">문제 추가</button>
+      </div>
+      <p class="hint">추가한 문제는 Lv2에 자동 편입됩니다.</p>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
