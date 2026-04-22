@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "language": "ko-KR",
+    "target": "영작 학습",
+    "cefr": ["A1", "A2", "B1", "B2", "C1"]
+  },
+  "levels": [
+    {
+      "id": "lv1",
+      "title": "문장 뼈대",
+      "goal": "주어 + 동사 중심의 짧은 문장을 정확히 만든다.",
+      "unlock_rule": {
+        "min_avg_score": 70,
+        "min_clear_count": 3
+      },
+      "missions": [
+        {
+          "id": "lv1-m1",
+          "prompt_ko": "나는 학생이다.",
+          "target_points": ["be동사", "주어-동사 일치"],
+          "example_answers": ["I am a student."],
+          "hints": ["I + am", "관사 a/an 확인"],
+          "difficulty": 1
+        },
+        {
+          "id": "lv1-m2",
+          "prompt_ko": "그녀는 책을 읽는다.",
+          "target_points": ["3인칭 단수", "일반동사"],
+          "example_answers": ["She reads a book."],
+          "hints": ["She + reads", "동사에 -s"],
+          "difficulty": 1
+        }
+      ]
+    },
+    {
+      "id": "lv2",
+      "title": "시제",
+      "goal": "현재/과거/미래 시제를 구분해 쓴다.",
+      "unlock_rule": {
+        "min_avg_score": 75,
+        "min_clear_count": 4
+      },
+      "missions": [
+        {
+          "id": "lv2-m1",
+          "prompt_ko": "어제 나는 친구를 만났다.",
+          "target_points": ["과거시제", "시간부사"],
+          "example_answers": ["I met my friend yesterday."],
+          "hints": ["yesterday면 과거형", "meet -> met"],
+          "difficulty": 2
+        }
+      ]
+    }
+  ],
+  "submission_schema": {
+    "submission_id": "uuid",
+    "mission_id": "lv1-m1",
+    "user_input": "I am student.",
+    "scores": {
+      "grammar": 80,
+      "naturalness": 70,
+      "meaning": 90,
+      "total": 80
+    },
+    "feedback": {
+      "summary_ko": "관사를 추가하면 더 자연스러워요.",
+      "correction": "I am a student.",
+      "alternatives": ["I'm a student."],
+      "error_tags": ["article"]
+    },
+    "created_at": "2026-04-22T00:00:00Z"
+  }
+}
